@@ -2,62 +2,40 @@
 Console.WriteLine("Hello, World!");
 
 {
-    string input;
-    int res;
-    Console.WriteLine("Input from User:");
-    input = Console.ReadLine();
-    res = Convert.ToInt32(input);
-    Console.WriteLine("Input = {0}", res);
-
     Random random = new Random();
-    int randNumber = random.Next(0, 10);
+    int randomNumber = random.Next(1, 10); // Random ricxvis dagenerireba 1-10-s shoris
+    int numberOfTries = 3;
+    bool isWinner = false;
 
-    Console.WriteLine(randNumber);
+    Console.WriteLine("Mogesalmebit, tamasshi Gamoicani cifri");
+    Console.WriteLine($"Tkven gaqvt {numberOfTries} cda rata gamoicnot swori cifri.");
 
-    if (randNumber == res)
+    for (int tries = 1; tries <= numberOfTries; tries++)
     {
-        Console.WriteLine("cifri gamoicanit");
+        Console.Write($"Cda {tries}: sheiyvanet sasurveli cifri, shualedshi (1-10): ");
+        int userGuess = Convert.ToInt32(Console.ReadLine());
+
+        if (userGuess == randomNumber)
+        {
+            isWinner = true;
+            break;
+        }
+        else 
+        {        
+            if(tries == numberOfTries)
+            {
+                Console.WriteLine($"Samwuxarod cdebis raodenoba amoiwura. Swori ricxvi iyo - {randomNumber}");
+                break;
+            }
+            if(tries <=numberOfTries)
+            {
+                Console.WriteLine("Araswori ricxvi. Kidev scadet.");
+            }
+        }
     }
-}
 
-
-{
-    string input;
-    int res;
-    Console.WriteLine("Input from User:");
-    input = Console.ReadLine();
-    res = Convert.ToInt32(input);
-    Console.WriteLine("Input = {0}", res);
-
-    Random random = new Random();
-    int randNumber = random.Next(0, 10);
-    Console.WriteLine(randNumber);
-
-    if (randNumber == res)
+    if (isWinner)
     {
-        Console.WriteLine("cifri gamoicanit");
-    }
-}
-
-
-{
-    string input;
-    int res;
-    Console.WriteLine("Input from User:");
-    input = Console.ReadLine();
-    res = Convert.ToInt32(input);
-    Console.WriteLine("Input = {0}", res);
-
-    Random random = new Random();
-    int randNumber = random.Next(0, 10);
-    Console.WriteLine(randNumber);
-
-    if (randNumber == res)
-    {
-        Console.WriteLine("cifri gamoicanit");
-    }
-    else
-    {
-        Console.WriteLine("cifri ver gamoicanit da tamashi waaget");
+        Console.WriteLine($"Gilocavt! Tkven gamoicanit Random cifri - ({randomNumber}).");
     }
 }
