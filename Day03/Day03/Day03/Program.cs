@@ -2,61 +2,69 @@
 Console.WriteLine("Hello, World!");
 
 ////Task1
-//SumNumbers([3], -213123);
-////int[] myArray = new int[] { 251, 115, 332 };
-////int index = 425;
+//int[] myArray = new int[] { 254, 123, 532 };
+//int index = -1;
 
-////int result = SumNumbers(myArray, index);
+//int result = CalculateDigitSum(myArray, index);
+
+//Console.WriteLine($"elmentebis jami, index # {index} aris: {result}");
 
 
-
-//int SumNumbers(int[] myArray, int index)
+//int CalculateDigitSum(int[] array, int index)
 //{
-//    index = Math.Abs(index); //Checking a variable to be in positive state
-//    string NumberStr = index.ToString(); //Converting int to String
-
-//    int sum = 0;
-
-//    foreach (char digitChar in NumberStr)
+//    if (index >= 0 && index < array.Length)
 //    {
-//        if (char.IsDigit(digitChar)) //Checking that each char is digit
-//        {
-//            int digit = digitChar - '0';
-//            sum += digit;
-//        }
-//    }
-//    Console.WriteLine(sum);
-//    return sum;
+//        int element = array[index];
+//        int sum = 0;
 
+//        while (element > 0)
+//        {
+//            int digit = element % 10;
+//            sum += digit;
+//            element /= 10;
+//        }
+
+//        return sum;
+//    }
+//    else
+//    {
+//        throw new IndexOutOfRangeException("Araswori Index");
+//    }
 //}
 
 
 
 
+//task 2
 
-
-//Task2
-Console.WriteLine("Sheiyvanet masivis zoma: ");
-int size = int.Parse(Console.ReadLine());
-
-if (size <= 0)
+    char[] userCharArray = GetCharArray();
+    
+    char[] GetCharArray()
 {
-    Console.WriteLine("Masivis zoma unda iyos 0-ze meti");
-    return;
+    Console.WriteLine("Sheiyvanet masivis zoma: ");
+    int size = int.Parse(Console.ReadLine());
+
+    if (size <= 0)
+    {
+        Console.WriteLine("Masivis zoma unda iyos 0-ze meti");
+        return null;
+    }
+
+    char[] charArray = new char[size];
+
+    Console.WriteLine("Sheiyvanet symboloebi charis shesavsebad");
+
+    for (int i = 0; i < size; i++)
+    {
+        Console.Write($"Char {i + 1}: ");
+        charArray[i] = Console.ReadKey().KeyChar;
+        Console.WriteLine();
+    }
+
+    return charArray;
 }
 
-char[] charArray = new char[size];
-
-Console.WriteLine("Sheiyvanet symboloebi charis shesavsebad");
-
-for (int i = 0; i < size; i++)
-{
-    Console.Write($"Char {i + 1}: ");
-    charArray[i] = Console.ReadKey().KeyChar;
-    Console.WriteLine();
-}
-
-string originalString = new string(charArray);
+string originalString = new string(userCharArray);
 
 Console.WriteLine("String: " + originalString);
 
